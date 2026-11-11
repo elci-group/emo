@@ -8,14 +8,19 @@ file does not replace or claim to reproduce the full directive.
 
 - Local Rust library and JSON CLI with `inspect`, `suggest`, `apply`, and
   `policy validate` operations.
-- Strict request and policy parsing, a 16 KiB request bound, and explicit
-  no-op decisions when no qualified policy exists.
+- Strict request and policy parsing, a 64 KiB request envelope bound, a 16 KiB
+  message bound, and explicit no-op decisions when no qualified policy exists.
 - No-op output preserves the message bytes, reports zero edits, and does not
   call an external provider or store request text.
 - An ephemeral keyed digest avoids publishing a reusable raw SHA-256 digest
   for a low-entropy message.
 - Candidate-policy validation cannot activate a policy and accepts only a
   no-op edit in this baseline.
+- Offline free-route admission checks require exact allowlisted IDs, fresh
+  catalogue expiry, explicit zero pricing across required categories, denied
+  data collection, compatible terms, and bounded retention for every fallback.
+- The admission layer makes no provider requests; live catalogue retrieval,
+  quota reservations, usage reconciliation, and transport fault handling remain.
 - Unit and CLI tests, a strict Deliver spec, and Brandi-generated project
   brief files.
 
@@ -26,7 +31,7 @@ file does not replace or claim to reproduce the full directive.
 | DG-0 scope | Partial | Accountable owners, data classification, external revisions, and capability inventory are not assigned. |
 | DG-1 contracts | Partial | Only local request/decision/policy contracts are implemented; outcome, work, claim, capability, and compatibility contracts remain. |
 | DG-2 preservation | Partial | Tested no-op preservation only; segmentation, protected-span fixtures, and reviewed transformations remain. |
-| DG-3 broker | Blocked | No provider broker or free-only routing implementation. |
+| DG-3 broker | Partial | Offline free-route admission is implemented; live catalogue retrieval, exact OpenRouter controls, quota reservations, transport retries, and usage reconciliation remain. |
 | DG-4 integrations | Blocked | Deliver is used as a local gate; no adapter conformance against a pinned Deliver or Brandi executable. |
 | DG-5 host integrity | Blocked | No sealed grader or experimental host. |
 | DG-6 security/reliability | Blocked | No tenant/session store, migrations, backup/restore, or 24-hour soak. |

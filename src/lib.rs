@@ -9,6 +9,8 @@ use serde::{Deserialize, Serialize};
 use sha2::Sha256;
 use std::fmt;
 
+pub mod provider;
+
 pub const DECISION_SCHEMA: &str = "emo.decision.v1";
 pub const REQUEST_SCHEMA: &str = "emo.request.v1";
 

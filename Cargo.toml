@@ -1,6 +1,6 @@
 [package]
 name = "emo"
-version = "0.0.2"
+version = "0.0.3"
 edition = "2021"
 description = "Evidence-driven prompt modulation with a safe, local no-op baseline"
 license = "MIT"

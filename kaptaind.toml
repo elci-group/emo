@@ -25,7 +25,7 @@ patch = 0.1    # score at or above this bumps Patch; below it, no commit
 
 [push]
 enabled = true
-branch = "main"
+branch = "development/emo-tdd-001"
 
 [capabilities]
 network_push = true

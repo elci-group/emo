@@ -2,8 +2,8 @@
 
 **emo — evidence-driven prompt modulation for sustained agent work.**
 
-emo is an early local Rust library and CLI baseline. Version 0.0.1 defaults to
-an unchanged-message decision because no transformation policy has passed the
+emo is an early local Rust library and CLI baseline. It defaults to an
+unchanged-message decision because no transformation policy has passed the
 preservation or benefit gates. It does not claim that politeness improves
 agent performance.
 
@@ -33,14 +33,15 @@ Example:
 
 The CLI accepts at most 64 KiB of request JSON, and the message itself is
 limited to 16 KiB of UTF-8 bytes. The decision includes a per-process keyed
-message digest. The key is generated from the operating system random source and is not persisted, so digests cannot
-be used to correlate messages between invocations. The message is returned to
+message digest. The key is generated from the operating system random source
+and is not persisted, so digests cannot be used to correlate messages between
+invocations. The message is returned to
 the caller in the decision output; callers are responsible for handling it.
 
 ## Current limits
 
 This is an engineering scaffold, not the completed directive. It has no
-provider broker, session store, service, tenant isolation, adaptive policy
+provider transport or live catalogue client, session store, service, tenant isolation, adaptive policy
 registry, Deliver or Brandi adapter, sealed evaluator, or demonstrated
 behavioural benefit. The local CLI accepts only the minimal request shape
 implemented in this release. See [implementation status](docs/implementation-status.md)
