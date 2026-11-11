@@ -1,0 +1,11 @@
+product:
+  name: emo
+  tagline: Evidence-driven prompt modulation for sustained agent work
+  mission: Test bounded prompt-style changes while preserving user intent and reporting evidence honestly
+  aliases: []
+  former_names: []
+archetype:
+- engineer
+terminology:
+  canonical: {}
+  banned_variants: {}

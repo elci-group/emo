@@ -1,0 +1,13 @@
+{
+  "schema": "emo.claim.v1",
+  "claims": [
+    {
+      "id": "purpose-v0.0.1",
+      "state": "purpose",
+      "text": "emo provides a local no-op prompt decision baseline.",
+      "evidence_refs": ["docs/implementation-status.md"],
+      "performance_claim": false,
+      "expires": null
+    }
+  ]
+}

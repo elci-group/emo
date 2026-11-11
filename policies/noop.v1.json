@@ -1,0 +1,8 @@
+{
+  "schema": "emo.policy.v1",
+  "policy_id": "no-qualified-transformation",
+  "version": "0.0.1",
+  "state": "candidate",
+  "permitted_edits": ["noop"],
+  "scope": { "languages": ["*"], "task_types": ["*"] }
+}

@@ -1,0 +1,53 @@
+[[file]]
+path = "Cargo.toml"
+required = true
+
+[[file]]
+path = "Cargo.lock"
+required = true
+
+[[file]]
+path = "LICENSE"
+required = true
+
+[[file]]
+path = "src/lib.rs"
+required = true
+forbid_regex = ["TODO", "FIXME", "unimplemented!"]
+
+[[file]]
+path = "src/main.rs"
+required = true
+forbid_regex = ["TODO", "FIXME", "unimplemented!"]
+
+[[file]]
+path = "schemas/emo.request.v1.json"
+required = true
+
+[[file]]
+path = "schemas/emo.decision.v1.json"
+required = true
+
+[[command]]
+name = "format"
+cmd = ["cargo", "fmt", "--all", "--", "--check"]
+expect_exit = 0
+timeout_secs = 120
+
+[[command]]
+name = "tests"
+cmd = ["cargo", "test", "--workspace", "--locked", "--offline"]
+expect_exit = 0
+timeout_secs = 600
+
+[[command]]
+name = "clippy"
+cmd = ["cargo", "clippy", "--workspace", "--all-targets", "--locked", "--offline", "--", "-D", "warnings"]
+expect_exit = 0
+timeout_secs = 600
+
+[[command]]
+name = "Brandi strict lint"
+cmd = ["brandi", "lint", "--path", ".", "--strict", "--fail-under", "90", "--format", "json"]
+expect_exit = 0
+timeout_secs = 180

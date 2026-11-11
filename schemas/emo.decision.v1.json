@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elci.group/emo/schemas/emo.decision.v1.json",
+  "title": "emo.decision.v1 local baseline decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "request_id", "session_id", "status", "reason_codes", "output", "original_digest", "output_digest", "policy_digest", "edits", "invariants", "usage", "evidence_refs"],
+  "properties": {
+    "schema": { "const": "emo.decision.v1" },
+    "request_id": { "type": "string" },
+    "session_id": { "type": "string" },
+    "status": { "const": "noop" },
+    "reason_codes": { "type": "array", "items": { "type": "string" } },
+    "output": { "type": "string" },
+    "original_digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "output_digest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "policy_digest": { "type": ["string", "null"] },
+    "edits": { "type": "array", "maxItems": 0 },
+    "invariants": {
+      "type": "object", "additionalProperties": false,
+      "required": ["original_preserved", "protected_bytes_preserved", "permissions_unchanged"],
+      "properties": {
+        "original_preserved": { "const": true },
+        "protected_bytes_preserved": { "const": true },
+        "permissions_unchanged": { "const": true }
+      }
+    },
+    "usage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["provider_cost_usd", "status"],
+      "properties": { "provider_cost_usd": { "type": ["number", "null"] }, "status": { "const": "not_invoked" } }
+    },
+    "evidence_refs": { "type": "array", "items": { "type": "string" } }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elci.group/emo/schemas/emo.request.v1.json",
+  "title": "emo.request.v1 local baseline request",
+  "description": "Runtime rejects a request whose message exceeds 16 KiB in UTF-8 bytes.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "request_id", "session_id", "message"],
+  "properties": {
+    "schema": { "const": "emo.request.v1" },
+    "request_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "session_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "message": { "type": "string", "maxLength": 16384 },
+    "language": { "type": ["string", "null"], "maxLength": 64 }
+  }
+}

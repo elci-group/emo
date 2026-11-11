@@ -1,0 +1,18 @@
+segments:
+- name: agent_developers
+  description: Developers who build agents and want bounded, inspectable prompt changes
+  pains:
+  - preserving task constraints across sustained agent interactions
+- name: evaluators
+  description: Researchers and evaluators measuring agent task outcomes
+  pains:
+  - separating implementation readiness from demonstrated benefit
+narratives:
+- capability: bounded prompt modulation
+  narrative: emo tests bounded prompt-style changes and keeps the original message when no policy is qualified
+  audiences:
+  - agent_developers
+  - evaluators
+  formats:
+  - docs
+  - demo_video

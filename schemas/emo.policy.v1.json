@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://elci.group/emo/schemas/emo.policy.v1.json",
+  "title": "emo.policy.v1 baseline candidate policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "policy_id", "version", "state", "permitted_edits", "scope"],
+  "properties": {
+    "schema": { "const": "emo.policy.v1" },
+    "policy_id": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "minLength": 1 },
+    "state": { "enum": ["candidate", "reviewed", "qualified", "active", "revoked", "expired"] },
+    "permitted_edits": { "type": "array", "items": { "const": "noop" } },
+    "scope": {
+      "type": "object", "additionalProperties": false,
+      "required": ["languages", "task_types"],
+      "properties": {
+        "languages": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "task_types": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    }
+  }
+}
